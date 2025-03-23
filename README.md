@@ -69,7 +69,7 @@ These tools and toolkit are intended **strictly for ethical hacking** and securi
 
 ## In-Class Disclaimer
 This toolkit is not intended to replace learning. If you do not understand what the tools are accomplishing / doing then you should not use them.
-The point of these tools are to assist with mundane and repitious tasks without fully replacing the need of understanding core concepts from the academic materials.
+The point of these tools are to assist with mundane and repitious tasks without fully replacing the need of understanding core concepts and fundamentals of cybersecurity and ethical hacking.
 
 ## 🎯 Roadmap
 - [ ] Improve scan speed & efficiency
