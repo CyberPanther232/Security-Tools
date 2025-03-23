@@ -3,7 +3,7 @@
 : '
 Program: subcalc
 Purpose: To calculate and display hosts (IPS) within a /24 subnet or higher
-Developer: Cybernsniper-dev
+Developer: CyberPanther232
 '
 
 # Function to calculate the number of hosts, usable IP range, and the final octets of the starting and ending hosts
