@@ -3,7 +3,7 @@
 """
 Program: web_scrape.py
 Purpose: Generic Web Scraping Python script template to help users gather data from html code on website
-Developer: Cybersniper-dev
+Developer: CyberPanther232
 """
 
 import lxml.html
