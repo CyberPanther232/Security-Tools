@@ -3,7 +3,7 @@
 : '
 Program: pingsw
 Purpose: Ping sweep script that calculates the IP addresses to scan via CIDR notation
-Developer: Cybernsniper-dev
+Developer: CyberPanther232
 '
 
 calculate_hosts_and_range() {
