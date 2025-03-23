@@ -3,7 +3,7 @@
 : '
 Program: clssh
 Purpose: To empty known_hosts file for the current user
-Developer: Cybernsniper-dev
+Developer: CyberPanther232
 '
 
 rm -rf ~/.ssh/known_hosts ~/.ssh/known_hosts.old
