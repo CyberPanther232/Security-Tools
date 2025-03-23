@@ -3,7 +3,7 @@
 <#
 Program: cybrecon.ps1
 Purpose: Multipurpose reconnaissance toolkit designed to assist with ethical hacking and penetration testing
-Developer: Cybersniper-dev
+Developer: CyberPanther232
 Version: 0.1
 Scripting Language: PowerShell
 #>
