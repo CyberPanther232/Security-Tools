@@ -1,0 +1,65 @@
+#!/bin/bash
+
+: '
+Program: subcalc
+Purpose: To calculate and display hosts (IPS) within a /24 subnet or higher
+Developer: Cybernsniper-dev
+'
+
+# Function to calculate the number of hosts, usable IP range, and the final octets of the starting and ending hosts
+calculate_hosts_and_range() {
+    cidr=$1
+
+    # Extract the IP address and subnet mask length from the CIDR notation
+    IFS="/" read -r ip mask <<< "$cidr"
+
+    # Convert the subnet mask length (e.g., /24) to the number of host bits
+    host_bits=$((32 - mask))
+
+    # Calculate the number of hosts (2^host_bits - 2 for network and broadcast)
+    num_hosts=$((2 ** host_bits - 2))
+
+    # Convert the IP address to its integer representation
+    IFS="." read -r a b c d <<< "$ip"
+    ip_decimal=$((a * 256 ** 3 + b * 256 ** 2 + c * 256 + d))
+
+    # Calculate the network and broadcast addresses
+    net_address=$((ip_decimal & ((2 ** mask - 1) << (32 - mask))))
+    broadcast_address=$((net_address + (2 ** host_bits - 1)))
+
+    # Convert network and broadcast addresses back to dotted-decimal notation
+    network_ip=$(printf "%d.%d.%d.%d" $(( (net_address >> 24) & 255)) $(( (net_address >> 16) & 255)) $(( (net_address >> 8) & 255)) $(( net_address & 255)))
+    broadcast_ip=$(printf "%d.%d.%d.%d" $(( (broadcast_address >> 24) & 255)) $(( (broadcast_address >> 16) & 255)) $(( (broadcast_address >> 8) & 255)) $(( broadcast_address & 255)))
+
+    # Calculate the first usable IP and last usable IP
+    first_ip=$((net_address + 1))
+    last_ip=$((broadcast_address - 1))
+
+    # Convert first and last usable IPs to dotted-decimal notation
+    first_ip_str=$(printf "%d.%d.%d.%d" $(( (first_ip >> 24) & 255)) $(( (first_ip >> 16) & 255)) $(( (first_ip >> 8) & 255)) $(( first_ip & 255)))
+    last_ip_str=$(printf "%d.%d.%d.%d" $(( (last_ip >> 24) & 255)) $(( (last_ip >> 16) & 255)) $(( (last_ip >> 8) & 255)) $(( last_ip & 255)))
+
+    # Extract the final octets (last part) of the first and last usable IP
+    first_octet=${first_ip_str##*.}
+    last_octet=${last_ip_str##*.}
+
+    # Output the results
+    echo "CIDR: $cidr"
+    echo "Number of usable hosts: $num_hosts"
+    echo "Usable IP range: $first_ip_str - $last_ip_str"
+    echo "Network address: $network_ip"
+    echo "Broadcast address: $broadcast_ip"
+    echo "Final octet of starting host: $first_octet"
+    echo "Final octet of ending host: $last_octet"
+}
+
+# Check if the CIDR notation is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <CIDR>"
+    echo "Example: $0 192.168.1.1/24"
+    exit 1
+fi
+
+# Call the function to calculate hosts and range
+calculate_hosts_and_range "$1"
+

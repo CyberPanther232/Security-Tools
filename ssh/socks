@@ -1,0 +1,22 @@
+#!/bin/bash
+
+: '
+Program: socks
+Purpose: To detect/kill SOCKS5 proxy tunnels setup via SSH
+Developer: Cybernsniper-dev
+'
+
+socks_test=$(ss -anltp | grep 9050 | awk '{print$6}' | grep -o 'pid=[0-9]*' |  awk -F '=' '{print$2}')
+
+# Check if the socks_test variable is not empty
+if [[ "$socks_test" != "" ]]; then
+   if [[ "$1" == "k" ]]; then 
+	echo "Killing dynamic tunnel!"
+	kill $socks_test
+	exit 1
+   fi
+    echo "Dynamic tunnel exists!"
+else
+    echo "Dynamic tunnel does not exist!"
+fi
+
