@@ -3,8 +3,8 @@
 """
 Program: cookie-cruncher.py
 Date Created: 03/01/2025
-Date Modified: 03/05/2025
-Developer: Cybersniper-dev
+Date Modified: 03/23/2025
+Developer: CyberPanther232
 Purpose: XSS tool designed to help assist in the identification of XSS vulnerabilities in a web application
 """
 
