@@ -86,6 +86,7 @@ This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ## 📬 Contact
 For questions or suggestions, open an issue or reach out via GitHub discussions or Email
+
 Email: kinneyh27@gmail.com
 
 ---
