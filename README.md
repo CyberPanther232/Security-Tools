@@ -85,9 +85,8 @@ Please feel free to contribute. If you don't understand the code, don't touch it
 This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ## 📬 Contact
-For questions or suggestions, open an issue or reach out via GitHub discussions or Signal.
+For questions or suggestions, open an issue or reach out via GitHub discussions or Email
 Email: kinneyh27@gmail.com
-Phone: 336-301-0107
 
 ---
 💻 Happy Hacking & Stay Secure!
