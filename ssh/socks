@@ -3,7 +3,7 @@
 : '
 Program: socks
 Purpose: To detect/kill SOCKS5 proxy tunnels setup via SSH
-Developer: Cybernsniper-dev
+Developer: CyberPanther232
 '
 
 socks_test=$(ss -anltp | grep 9050 | awk '{print$6}' | grep -o 'pid=[0-9]*' |  awk -F '=' '{print$2}')
