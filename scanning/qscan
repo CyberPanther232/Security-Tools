@@ -4,7 +4,7 @@
 Program: qscan
 Purpose: A quick scanning tool that takes IP addresses in CIDR notation to scan ports, identify services, and pull any useful information by conducting concurrent
 netcat scans on devices within the subnet
-Developer: Cybernsniper-dev
+Developer: CyberPanther232
 '
 
 # Function to calculate the number of hosts, usable IP range, and the final octets of the starting and ending hosts
