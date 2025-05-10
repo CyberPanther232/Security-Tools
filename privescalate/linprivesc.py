@@ -29,8 +29,7 @@ def sudo():
         result_interactive = subprocess.run(
             command_interactive, 
             capture_output=True, # This is the main issue for interactivity
-            text=True, 
-            timeout=5
+            text=True
         )
         # output_interactive = result_interactive.stdout.strip() # You capture stdout but don't print `output_interactive`
         
@@ -44,6 +43,7 @@ def sudo():
             return True
         
         else:
+            print("Sudo privileges vector(s) not found...")
             return False
 
     except subprocess.TimeoutExpired as e_timeout:
@@ -121,10 +121,18 @@ def suid():
             stdout=subprocess.PIPE,    # Explicitly capture stdout
             stderr=subprocess.DEVNULL, # Redirect stderr to /dev/null
             text=True,                 # Decode output as text
-            check=True                 # Raise an exception if 'find' returns non-zero
-        )
-        print("SUID files found:")
-        print(result.stdout.strip())
+            )
+        print("\n\nSUID vulnerable binaries found: ")
+
+        count = 0
+
+        for line in result.stdout.splitlines():
+            fields = line.split('/')
+            if fields[-1] in gtfobins:
+                count += 1
+                print(f"\nBinary Found on GTFOBins: {fields[-1]}")
+
+        print(f"\nTotal vulnerable binaries found: {count}")
 
     except subprocess.CalledProcessError as e:
         print(f"Error executing find: {e}")
@@ -152,8 +160,8 @@ def main():
     print("\nAttempting to detect privilege escalation vectors...")
     
     print("\nTesting for sudo permissions...")
-    # if sudo():
-    #     exit()
+    if sudo():
+        exit()
 
     print("\nTesting for suid bit binaries...")
     if suid():
