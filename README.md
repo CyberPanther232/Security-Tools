@@ -30,11 +30,13 @@ Ensure you have the following installed:
 ├── guides/
 │   ├── cybrecon-guide.md # WIP: markdown document with information / guides for using the cybrecon toolkit
 │   ├── sql-syringe-guide.md # WIP: markdown document with information / guides for using the sql-syringe.py toolkit
+├── privescalate/
+│   ├── linprivesc.py # python script that attempts to detect and exploit privilege escalation vectors within a linux OS machine
 ├── revshells/
-│   ├── adv-rev-shell.py # Advanced reverse shell script to work in combination with c2-listener.py
+│   ├── adv-rev-shell.py # advanced reverse shell script to work in combination with c2-listener.py
 │   ├── c2-command.py # python script to assist with managing multiple remote shell sessions
 │   ├── c2-control.py # python script that displays log information from remote shell sessions and c2-command.py
-│   ├── rev-shell.c # Simple C reverse shell code
+│   ├── rev-shell.c # simple C reverse shell code
 │   ├── rev-shell.py # simple python reverse shell script
 │   ├── rev-shells.json # WIP: reverse shell template storage for rev-generator.py
 ├── scanning/
