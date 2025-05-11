@@ -8,7 +8,8 @@ Welcome to the **Cybersecurity Tools & Toolkits** – a powerful set of Bash and
 - **Vulnerability Assessment**: Identify weaknesses in networked systems.
 - **Automation**: Easily integrate with existing workflows using modular scripts.
 - **Customizable**: Modify and extend functionality based on your needs.
-- **Reverse Shells**: Create and manage multiple reverse shell sessions
+- **Reverse Shells**: Create and manage multiple reverse shell sessions.
+- **Command and Control**: Scripts to conduct remote exploitation of machines
 
 ## 🚀 Getting Started
 ### Prerequisites
@@ -22,6 +23,9 @@ Ensure you have the following installed:
 ## 📁 Directory Structure
 ```
 .
+├── c2/
+│   ├── c2-command.py # python script to assist with managing multiple remote shell sessions
+│   ├── c2-control.py # python script that displays log information from remote shell sessions and c2-command.py
 ├── exploits/
 │   ├── exp.py # buffer overflow exploit template
 │   ├── vuln-serv-exp.py # vulnerable Server executable buffer overflow python script
@@ -35,8 +39,6 @@ Ensure you have the following installed:
 │   ├── linprivesc.py # python script that attempts to detect and exploit privilege escalation vectors within a linux OS machine
 ├── revshells/
 │   ├── adv-rev-shell.py # advanced reverse shell script to work in combination with c2-listener.py
-│   ├── c2-command.py # python script to assist with managing multiple remote shell sessions
-│   ├── c2-control.py # python script that displays log information from remote shell sessions and c2-command.py
 │   ├── rev-shell.c # simple C reverse shell code
 │   ├── rev-shell.py # simple python reverse shell script
 │   ├── rev-shells.json # WIP: reverse shell template storage for rev-generator.py
