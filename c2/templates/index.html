@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log File Viewer</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0;
+            background-color: #eef1f5; 
+            color: #333; 
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px 30px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .container { 
+            max-width: 900px; /* Max width for the content */
+            margin: 30px auto; /* Center the container with some margin */
+            background-color: #ffffff; 
+            padding: 25px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 0; /* No top margin for the first heading in container */
+        }
+        pre { 
+            background-color: #282c34; /* Dark background for log */
+            color: #abb2bf;           /* Light text for readability */
+            padding: 20px; 
+            border-radius: 6px; 
+            white-space: pre-wrap;    /* CSS3: wrap lines that are too long */
+            word-wrap: break-word;    /* Legacy: wrap words if necessary */
+            font-family: "Consolas", "Monaco", "Courier New", Courier, monospace;
+            font-size: 0.9em;
+            overflow-x: auto;         /* Add horizontal scrollbar if content still overflows */
+            border: 1px solid #22252a;
+        }
+        .empty-log-message {
+            color: #7f8c8d;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px dashed #ced4da;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Log File Viewer</h1>
+    </header>
+    <main class="container">
+        <h2>Contents of '{{ logfile_name_for_display if logfile_name_for_display else "logfile.txt" }}'</h2>
+        {% if data %}
+            <pre>
+{% for line in data %}{{ line }}{% endfor %}
+            </pre>
+        {% else %}
+            <p class="empty-log-message">The log file is empty or could not be read.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
