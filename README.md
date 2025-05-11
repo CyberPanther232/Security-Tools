@@ -68,7 +68,7 @@ Ensure you have the following installed:
 - Improvements in UI to make tools User Friendly
 
 ## ⚠️ Legal Disclaimer
-These tools and toolkit are intended **strictly for ethical hacking** and security research. Unauthorized use against networks you do not own or have explicit permission to test is illegal. The developers are **not responsible for any misuse** of this software.
+These tools and toolkit are intended **strictly for ethical hacking** and **security research**. Unauthorized use against networks you do not own or have explicit permission to test is illegal. The developers are **not responsible for any misuse** of this software.
 
 ## In-Class Disclaimer
 This toolkit is not intended to replace learning. If you do not understand what the tools are accomplishing / doing then you should not use them.
