@@ -60,9 +60,9 @@ Ensure you have the following installed:
 ```
 
 ## Future Additions
-- LFI/RFI Scanner
 - Firewall Rules Tester
-- Payload Encoder/Decoder
+- Advanced C2 scripts
+- Exploit/File injection script
 - More granular scanning options
 - PowerShell scripts to perform tool functions on Windows machines
 - Improvements in UI to make tools User Friendly
