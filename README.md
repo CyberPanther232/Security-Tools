@@ -23,8 +23,9 @@ Ensure you have the following installed:
 ```
 .
 ├── exploits/
-│   ├── exp.py # Buffer overflow exploit template
-│   ├── vuln-serv-exp.py # Vulnerable Server executable buffer overflow python script
+│   ├── exp.py # buffer overflow exploit template
+│   ├── vuln-serv-exp.py # vulnerable Server executable buffer overflow python script
+│   ├── simple-keylogger.py # simple python3 keylogger software for ethical and legal uses only
 ├── general/ 
 │   ├── subcalc # performs subnet calculations
 ├── guides/
