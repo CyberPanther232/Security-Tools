@@ -17,7 +17,7 @@ banner () {
         \____/\__, |_.__/|_|  \___|\___\___/|_| |_|
               |___/                            
                     Cyber Recon Security Toolkit v1.1
-                    Developed by - Hunter Kinney            
+                    Developed by - CyberPanther232            
             "
 }
 # Function to calculate the number of hosts, usable IP range, and the final octets of the starting and ending hosts
