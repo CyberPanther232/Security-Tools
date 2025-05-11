@@ -1,5 +1,13 @@
 #!/bin/python3
 
+"""
+DISCLAIMER: For Legal and Ethical Uses only!
+Program: linprivesc.py
+Developer: CyberPanther232
+Purpose: To help with gain privilege escalation on Linux operating systems for CTFs, research, and other legal and legitimate purposes
+Date Created: 05-09-2025
+"""
+
 import subprocess
 import os
 from time import sleep
