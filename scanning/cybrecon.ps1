@@ -11,15 +11,24 @@
     Requires: nmap, wget (for FTP in qscan), and potentially nc (if Test-NetConnection is not sufficient).
 #>
 
+# --- Main Script Logic ---
+param (
+    [string]$Command,
+    [string[]]$CommandArgs
+)
+
 function Show-Banner {
     Write-Host @"
-         ___         _
-        / __\  ___  | | __ _ __ ___   ___  ___  _ __
-       / /   | | | || '_ \| '__/ _ \ / __|/ _ \| '_ \
-      / /__| |_| || |_) | | |  __/| (_| (_) | | | |
-      \____/\__,_||_.__/|_|  \___| \___\___/|_| |_|
-                        Cyber Recon Security Toolkit v1.1 (PowerShell)
-                        Developed by - CyberPanther232 (Original)
+           ___      _                              
+          / __\   _| |__  _ __ ___  ___ ___  _ __  
+         / / | | | | '_ \| '__/ _ \/ __/ _ \| '_ \ 
+        / /__| |_| | |_) | | |  __/ (_| (_) | | | |
+        \____/\__, |_.__/|_|  \___|\___\___/|_| |_|
+              |___/                            
+                    Cyber Recon Security Toolkit v1.1
+                    Developed by - CyberPanther232  1.1 (PowerShell)
+                    Converted Via: Gemini AI
+                    
 "@
 }
 
@@ -183,7 +192,7 @@ function Start-QScan {
     
     # Convert port string to an array of individual ports and ranges
     $portArray = @()
-    $Ports.Split([',',' '],[System.StringSplitOptions]::RemoveEmptyEntries) | ForEach-Object {
+    $Ports.Split([char[]]@(',', ' '), [System.StringSplitOptions]::RemoveEmptyEntries) | ForEach-Object {
         if ($_ -match "-") {
             $range = $_.Split('-')
             if ($range.Count -eq 2 -and [int]::TryParse($range[0], [ref]$null) -and [int]::TryParse($range[1], [ref]$null) ) {
@@ -260,18 +269,18 @@ function Start-QScan {
                                 & wget.exe -r -q "ftp://$ip" -o "$($env:TEMP)\wget_ftp_$($ip.Replace('.','_')).log"
                                 if ($LASTEXITCODE -ne 0) { Write-Warning "wget FTP for $ip returned non-zero exit code."}
                             } catch {
-                                Write-Warning "Failed to run wget for FTP on $ip: $($_.Exception.Message)"
+                                Write-Warning "Failed to run wget for FTP on ${ip}: $($_.Exception.Message)"
                             }
                         } elseif ($p -eq 80 -or $p -eq 443 -or $p -eq 8080) { # HTTP/S
                              $protocolHttp = if ($p -eq 443 -or $p -eq 8443) {"https"} else {"http"}
-                            if ($isVerbose) { Write-Host "$($protocolHttp.ToUpper()) detected on $ip. Running Invoke-WebRequest -Uri $protocolHttp://$ip ..." }
+                            if ($isVerbose) { Write-Host "$($protocolHttp.ToUpper()) detected on $ip. Running Invoke-WebRequest -Uri ${protocolHttp}://${ip} ..." }
                             try {
                                 # Invoke-WebRequest doesn't have a simple recursive download like wget -r.
                                 # This will just get the front page. For full mirroring, a more complex script or wget is needed.
-                                Invoke-WebRequest -Uri "$protocolHttp://$ip" -OutFile "$($env:TEMP)\web_content_$($ip.Replace('.','_')).html" -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
-                                if ($LASTEXITCODE -ne 0) { Write-Warning "Invoke-WebRequest for $protocolHttp://$ip returned non-zero status."}
+                                Invoke-WebRequest -Uri "${protocolHttp}://${ip}" -OutFile "$($env:TEMP)\web_content_$($ip.Replace('.','_')).html" -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+                                if ($LASTEXITCODE -ne 0) { Write-Warning "Invoke-WebRequest for ${protocolHttp}://${ip} returned non-zero status."}
                             } catch {
-                                Write-Warning "Failed to run Invoke-WebRequest for $protocolHttp://$ip: $($_.Exception.Message)"
+                                Write-Warning "Failed to run Invoke-WebRequest for ${protocolHttp}://${ip}: $($_.Exception.Message)"
                             }
                         }
                     }#else {
@@ -756,13 +765,6 @@ function Start-WebShot {
     # }
     # Write-Host "WebShot analysis would be aggregated into a report."
 }
-
-
-# --- Main Script Logic ---
-param (
-    [string]$Command,
-    [string[]]$CommandArgs
-)
 
 if (-not $Command) {
     Show-Banner
