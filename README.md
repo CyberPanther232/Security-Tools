@@ -24,6 +24,8 @@ Ensure you have the following installed:
 ```
 .
 ├── c2/
+│   ├── templates # templates directory for the advanced keylogger script
+│   │   ├── index.html # main webpage for advanced key logger server GUI
 │   ├── c2-command.py # python script to assist with managing multiple remote shell sessions
 │   ├── c2-control.py # python script that displays log information from remote shell sessions and c2-command.py
 │   ├── data-recv-server.py # python server that listens for advanced keylogger data
