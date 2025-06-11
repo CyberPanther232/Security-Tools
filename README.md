@@ -26,6 +26,11 @@ Ensure you have the following installed:
 ├── c2/
 │   ├── c2-command.py # python script to assist with managing multiple remote shell sessions
 │   ├── c2-control.py # python script that displays log information from remote shell sessions and c2-command.py
+│   ├── data-recv-server.py # python server that listens for advanced keylogger data
+│   ├── encryping-client.py # python client that receives encrypted commands through icmp packets
+│   ├── encryping.py # python server that sends encrypted commands through icmp packets to client
+│   ├── necro.py # necromancer python script that provides a terminal that can also control machines infected with zombie.py
+│   ├── zombie.py # zombie python script that when ran on a machine reaches out periodically to the necro server to receive commands
 ├── exploits/
 │   ├── exp.py # buffer overflow exploit template
 │   ├── vuln-serv-exp.py # vulnerable Server executable buffer overflow python script
