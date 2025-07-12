@@ -1,4 +1,4 @@
-![Alt text](Security-Tools/Sec_Tools_Logo.png)
+![Alt text](Security-Tools/Sec_Tools_logo.png)
 
 # 🔍 Cybersecurity Tools & Toolkits
 
