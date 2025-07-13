@@ -1,4 +1,4 @@
-![Alt text](https://github.com/CyberPanther232/Security-Tools/blob/main/Sec_Tools_logo.png)
+![Alt text](https://github.com/CyberPanther232/Security-Tools/blob/main/Sec_Tools_logo_mini.png)
 
 # 🔍 Cybersecurity Tools & Toolkits
 
