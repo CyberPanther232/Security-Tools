@@ -5,6 +5,7 @@
 Welcome to the **Cybersecurity Tools & Toolkits** – a powerful set of Bash and Python scripts designed for ethical hackers, penetration testers, and security researchers. This repository contains scripts and utilities for network reconnaissance, vulnerability scanning, and various security assessments.
 
 ## ⚡ Features
+
 - **Network Scanning**: Tools to gather information regarding ports, services, and ips.
 - **Reconnaissance Tools**: Gather detailed information about targets.
 - **Vulnerability Assessment**: Identify weaknesses in networked systems.
@@ -14,8 +15,11 @@ Welcome to the **Cybersecurity Tools & Toolkits** – a powerful set of Bash and
 - **Command and Control**: Scripts to conduct remote exploitation of machines
 
 ## 🚀 Getting Started
+
 ### Prerequisites
+
 Ensure you have the following installed:
+
 - `nmap`
 - `netcat`
 - `curl`
@@ -23,6 +27,7 @@ Ensure you have the following installed:
 - `php`
 
 ## 📁 Directory Structure
+
 ```
 .
 ├── c2/
@@ -35,6 +40,16 @@ Ensure you have the following installed:
 │   ├── encryping.py # python server that sends encrypted commands through icmp packets to client
 │   ├── necro.py # necromancer python script that provides a terminal that can also control machines infected with zombie.py
 │   ├── zombie.py # zombie python script that when ran on a machine reaches out periodically to the necro server to receive commands
+├── ctf/
+│   ├── packet_captures
+│   │   ├── pyshark_scripts
+│   │   │    ├── get_dns.py # PyShark script to gather all dns queries and domain names from a packet capture
+│   │   │    ├── get_export_objects.py # PyShark script to gather all export objects from a packet capture
+│   │   │    ├── pcap_stats.py # PyShark script to gather the conversations, protocols, and endpoints from a packet capture
+│   │   ├── tshark_scripts
+│   │   │    ├── getHTTP.sh # Bash script that uses TShark to parse HTTP traffic and data from packet captures
+│   │   │    ├── installTshark.sh # Bash script designed to automatically install tshark for linux machines
+│   │   ├── tcpdump_cheatsheet.md # Markdown document containing commands and a guide to using tcpdump
 ├── exploits/
 │   ├── exp.py # buffer overflow exploit template
 │   ├── vuln-serv-exp.py # vulnerable Server executable buffer overflow python script
@@ -71,6 +86,7 @@ Ensure you have the following installed:
 ```
 
 ## Future Additions
+
 - Firewall Rules Tester
 - Advanced C2 scripts
 - Exploit/File injection script
@@ -79,13 +95,16 @@ Ensure you have the following installed:
 - Improvements in UI to make tools User Friendly
 
 ## ⚠️ Legal Disclaimer
+
 These tools and toolkit are intended **strictly for ethical hacking** and **security research**. Unauthorized use against networks you do not own or have explicit permission to test is illegal. The developers are **not responsible for any misuse** of this software.
 
 ## In-Class Disclaimer
+
 This toolkit is not intended to replace learning. If you do not understand what the tools are accomplishing / doing then you should not use them.
 The point of these tools are to assist with mundane and repitious tasks without fully replacing the need of understanding core concepts and fundamentals of cybersecurity and ethical hacking.
 
 ## 🎯 Roadmap
+
 - [ ] Improve scan speed & efficiency
 - [ ] Add more recon techniques
 - [ ] Integrate OSINT data sources
@@ -93,16 +112,19 @@ The point of these tools are to assist with mundane and repitious tasks without 
 - [ ] Improve effectiveness of learning and task completion
 
 ## 🤝 Contributing
+
 Please feel free to contribute. If you don't understand the code, don't touch it please :)
 
 ## 📜 License
+
 This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ## 📬 Contact
+
 For questions or suggestions, open an issue or reach out via GitHub discussions or Email
 
 Email: summit.betel3421@eagereverest.com
 
 ---
-💻 Happy Hacking & Stay Secure!
 
+💻 Happy Hacking & Stay Secure!
