@@ -1,12 +1,13 @@
 #!/bin/python3
 
 """
+------------------------------------------------------------------------------------------------------------
+DISCLAIMER: FOR ETHICAL AND LEGAL USE ONLY!
 Program: zombie.py
 Purpose: The purpose of this script is to develop a program that takes over a user on a linux-based machine (persistence)
 Developer: CyberPanther232
 Date-Created: 16-May-2025
-
-DISCLAIMER: FOR ETHICAL AND LEGAL USE ONLY
+------------------------------------------------------------------------------------------------------------
 """
 
 import os

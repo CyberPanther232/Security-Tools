@@ -1,3 +1,12 @@
+"""
+------------------------------------------------------------------------------------------------------------
+DISCLAIMER: For Legal and Ethical Uses only!
+Program: c2-command.py
+Developer: CyberPanther232
+Purpose: To demonstrate a proof-of-concept command and control server
+Date Created: 05-11-2025
+------------------------------------------------------------------------------------------------------------
+"""
 import socket
 import os
 import platform

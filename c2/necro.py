@@ -1,12 +1,13 @@
 #!/bin/python3
 
 """
+------------------------------------------------------------------------------------------------------------
+DISCLAIMER: FOR ETHICAL AND LEGAL USE ONLY!
 Program: necro.py
 Purpose: The purpose of this script is to execute commands and control any machine infected with the zombie.py
 Developer: CyberPanther232
 Date-Created: 07-June-2025
-
-DISCLAIMER: FOR ETHICAL AND LEGAL USE ONLY
+------------------------------------------------------------------------------------------------------------
 """
 
 import socket

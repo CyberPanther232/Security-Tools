@@ -1,3 +1,13 @@
+"""
+------------------------------------------------------------------------------------------------------------
+DISCLAIMER: For Legal and Ethical Uses only!
+Program: c2-data-recv-server.py
+Developer: CyberPanther232
+Purpose: To demonstrate a proof-of-concept command and control server data receiving script
+Date Created: 05-11-2025
+------------------------------------------------------------------------------------------------------------
+"""
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)

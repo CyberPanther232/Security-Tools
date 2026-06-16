@@ -1,3 +1,13 @@
+"""
+------------------------------------------------------------------------------------------------------------
+DISCLAIMER: For Legal and Ethical Uses only!
+Program: encryping.py
+Developer: CyberPanther232
+Purpose: To demonstrate a proof-of-concept command and control server encrypted communication script using the ICMP protocol
+Date Created: 05-11-2025
+------------------------------------------------------------------------------------------------------------
+"""
+
 from cryptography.fernet import Fernet
 from scapy.all import sr, IP, ICMP, Raw, sniff
 from threading import Thread

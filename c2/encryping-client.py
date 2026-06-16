@@ -1,3 +1,13 @@
+"""
+------------------------------------------------------------------------------------------------------------
+DISCLAIMER: For Legal and Ethical Uses only!
+Program: encrypting-client.py
+Developer: CyberPanther232
+Purpose: To demonstrate a proof-of-concept command and control server encrypted communication client
+Date Created: 05-11-2025
+------------------------------------------------------------------------------------------------------------
+"""
+
 from scapy.all import sr, IP, ICMP, Raw, sniff
 from cryptography.fernet import Fernet
 from threading import Thread
